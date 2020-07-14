@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>中国重汽济南铸锻中心内部网-首页</title>
+<link rel="stylesheet" href="css/style1.css" type="text/css" media="all"/>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+//图片滚动 调用方法 imgscroll({speed: 30,amount: 1,dir: "up"});
+$.fn.imgscroll = function(o){
+	var defaults = {
+		speed: 40,
+		amount: 0,
+		width: 1,
+		dir: "left"
+	};
+	o = $.extend(defaults, o);
+
+	return this.each(function(){
+		var _li = $("li", this);
+		_li.parent().parent().css({overflow: "hidden", position: "relative"}); //div
+		_li.parent().css({margin: "0", padding: "0", overflow: "hidden", position: "relative", "list-style": "none"}); //ul
+		_li.css({position: "relative", overflow: "hidden"}); //li
+		if(o.dir == "left") _li.css({float: "left"});
+
+		//初始大小
+		var _li_size = 0;
+		for(var i=0; i<_li.size(); i++)
+			_li_size += o.dir == "left" ? _li.eq(i).outerWidth(true) : _li.eq(i).outerHeight(true);
+
+		//循环所需要的元素
+		if(o.dir == "left") _li.parent().css({width: (_li_size*3)+"px"});
+		_li.parent().empty().append(_li.clone()).append(_li.clone()).append(_li.clone());
+		_li = $("li", this);
+
+		//滚动
+		var _li_scroll = 0;
+		function goto(){
+			_li_scroll += o.width;
+			if(_li_scroll > _li_size)
+			{
+				_li_scroll = 0;
+				_li.parent().css(o.dir == "left" ? { left : -_li_scroll } : { top : -_li_scroll });
+				_li_scroll += o.width;
+			}
+				_li.parent().animate(o.dir == "left" ? { left : -_li_scroll } : { top : -_li_scroll }, o.amount);
+		}
+
+		//开始
+		var move = setInterval(function(){ goto(); }, o.speed);
+		_li.parent().hover(function(){
+			clearInterval(move);
+		},function(){
+			clearInterval(move);
+			move = setInterval(function(){ goto(); }, o.speed);
+		});
+	});
+};
+//友情链接下拉框跳转弹出新窗口
+function frlink(selObj){
+window.open(selObj.options[selObj.selectedIndex].value);}
+</script>
+</head>
+
+<body>
+<div id="hearder2" class="clearfix">
+	<div class="logo">
+   	  <img src="images/logo2.gif">
+  </div>
+    <div class="logo-name"></div>
+  <div class="form-tools">
+   	  <form id="search" name="search" method="post">
+      	<div class="tools-link">
+        	<a href="index2.html" target="_blank">预留位置</a>
+        </div>
+        <div class="search-box">
+            <input type="text" name="textfield" id="textfield" class="input-text" placeholder="请输入搜索关键词">
+            <input type="image" src="images/search.png" class="input-submit" />
+        </div>
+  	  </form>
+    </div>
+</div>
+<div id="menu-box" class="clearfix">
+    <div class="aaa">
+	<ul>
+    	<li><a href="index.html">首页</a></li>
+        <li><a href="detail1.html">企业新闻</a></li>
+        <li><a href="list-pic1.html">生产管理</a></li>
+        <li><a href="list-pic1.html">质量管理</a></li>
+        <li><a href="detail1.html">技术管理</a></li>
+        <li><a href="form1.html">设备动能</a></li>
+        <li><a href="list-text1.html">物流管理</a></li>
+        <li><a href="list-text1.html">管理制度</a></li>
+    </ul>
+    </div>
+</div>
+<div id="slider-box" style="background:url(images/slider1.jpg) center center;"></div>
+<!-- index1-div1 -->
+<div id="index1-div1" class="clearfix">
+    <div class="index1-left675">
+        <div class="title-box">企业介绍<a href="detail1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+        <p><img src="images/p-img.jpg" align="left">中国重汽集团济南动力有限公司铸造中心是一家经山东相关工商管理机构正规注册,
+            依法经营的企业,位于山东济南章丘明水经济开发工业园,这里环境优美交通方便。主要经营汽车发动机铸件,企业自经办以来,
+            务实经营,经营业务认知度不断上升其事业成就得到了市场及行业同仁的一致认可.&nbsp;&nbsp;今后我们将本着创新发展,用户至上的原则把我们
+            主营业务搞好.&nbsp; 在信息时代我们还将积极利用新的经营方法如开展电子商务等...<a href="detail1.html">查看更多...</a></p>
+    </div>
+    <div class="index1-right300">
+    	<div class="title-box">通知公告<a href="list-text1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+          <ul>
+              <li><a href="detail1.html">铸锻中心疫情防控信息通报</a><span>2020-07-11</span></li>
+              <li><a href="detail1.html">关于济南铸锻中心开展一线职工"求学梦行</a><span>2020-07-10</span></li>
+              <li><a href="detail1.html">关于2020年二季度安全管理先进单位得分</a><span>2017-07-10</span></li>
+              <li><a href="detail1.html">铸锻中心疫情防控信息通报</a><span>2017-02-10</span></li>
+          </ul>
+    </div>
+</div>
+<!-- index1-div2 -->
+<div id="index1-div2" class="clearfix">
+	<div class="index1-left675">
+        <!-- slider -->
+        <div class="index1-pic-gun">
+        	<div class="title-box">企业环境<a href="list-pic1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+            <div class="index1-scrollleft clearfix">
+                <ul>
+                    <li>
+                        <a href="detail1.html"><img alt="济南铸锻中心" src="images/b1.jpg"/></a>
+                        <span>济南铸锻中心</span>
+                    </li>
+                    <li>
+                        <a href="detail1.html"><img alt="铸造车间一部" src="images/b2.jpg"/></a>
+                        <span>铸造车间一部</span>
+                    </li>
+                    <li>
+                        <a href="detail1.html"><img alt="自动化生产线" src="images/b3.jpg"/></a>
+                        <span>自动化生产线</span>
+                    </li>
+                    <li>
+                        <a href="detail1.html"><img alt="铸造车间一部" src="images/b2.jpg"/></a>
+                        <span>铸造车间一部</span>
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+            $(document).ready(function(){
+
+                $(".index1-scrollleft").imgscroll({
+                    speed: 40,    //图片滚动速度
+                    amount: 0,    //图片滚动过渡时间
+                    width: 1,     //图片滚动步数
+                    dir: "left"   // "left" 或 "up" 向左或向上滚动
+                });
+
+            });
+            </script>
+        </div>
+        <!-- slider end -->
+        <div class="index1-li-box">
+            <div class="index1-left330">
+                <div class="title-box">安全环保<a href="list-text1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+                <img src="images/c1.jpg" style="width:330px; height:140px; margin:5px 0;">
+                <ul>
+                    <li><a href="detail1.html">[现场管理曝光台]安全消防督查情况汇总</a><span>2020-06-13</span></li>
+                    <li><a href="detail1.html">[现场管理曝光台]安全消防督查情况汇总</a><span>2020-06-12</span></li>
+                    <li><a href="detail1.html">[现场管理曝光台]摸具吊装专项检查汇总</a><span>2020-05-16</span></li>
+                    <li><a href="detail1.html">[现场管理曝光台]安全消防督查情况汇总</a><span>2020-05-13</span></li>
+                    <li><a href="detail1.html">[现场管理曝光台]安全消防督查情况汇总</a><span>2020-04-15</span></li>
+                </ul>
+            </div>
+            <div class="index1-right330">
+                <div class="title-box">质量管理<a href="list-text1.html" class="title-more" title="查看更多"><img src="images/12.gif"></a></div>
+                <img src="images/c2.jpg" style="width:330px; height:140px; margin:5px 0;">
+                <ul>
+                    <li><a href="detail1.html">[日常质量稽查]2020年三月份质量稽查计划</a><span>2020-03-09</span></li>
+                    <li><a href="detail1.html">[日常质量稽查]2020年二月份质量稽查计划</a><span>2020-02-09</span></li>
+                    <li><a href="detail1.html">[日常质量稽查]2020年一月份质量稽查计划</a><span>2020-01-02</span></li>
+                    <li><a href="detail1.html">[日常质量稽查]2019年十二月份质量稽查计划</a><span>2019-12-07</span></li>
+                    <li><a href="detail1.html">[日常质量稽查]2019年十一月份质量稽查计划</a><span>2019-11-08</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="index1-right300">
+        <div class="index1-login-box">
+          <div class="title-box">邮箱登录</div>
+          <form id="form1" name="form1" method="post">
+            <input type="text" name="textfield2" id="textfield2" placeholder="用户名" class="index1-uname">
+            <input type="password" name="password" id="password" placeholder="密码" class="index1-upass">
+            <div class="index1-t-link">
+                <input type="checkbox" name="checkbox" id="checkbox" class="index1-chek">记住密码
+                <a href="forgetpass.html" target="_blank">忘记密码？</a>
+            </div>
+            <input type="submit" name="submit" id="submit" value="登录" class="index1-input-login">
+            <input type="button" name="button" id="button" value="注册" class="index1-input-but" onClick="window.open('register.html')">
+          </form>
+        </div>
+		<div class="index1-list-menu">
+        	<div class="title-box">集团系统</div>
+            <ul>
+            	<li><a href="detail1.html">质量信息管理系统</a></li>
+                <li><a href="detail1.html">物资出门管理系统</a></li>
+                <li><a href="detail1.html">全面预算管理系统</a></li>
+                <li><a href="detail1.html">供应商商务平台系统</a></li>
+                <li><a href="detail1.html">集团公司OA系统</a></li>
+            </ul>
+    	</div>
+    </div>
+</div>
+<!-- div5 -->
+<div id="div5" class="clearfix">
+    <div class="link-box">
+    	<span>友情链接：</span>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 系统链接 ---</option>
+            <option value="#">质量检验系统</option>
+            <option value="#">能耗监测系统</option>
+            <option value="#">设备管理系统</option>
+            <option value="#">数据分析系统</option>
+        </select>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 集团网站 ---</option>
+            <option value="#">桥箱公司内网</option>
+            <option value="#">桥箱公司外网</option>
+            <option value="#">中国重汽集团</option>
+        </select>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 邮箱链接 ---</option>
+            <option value="#">集团邮件系统</option>
+            <option value="#">网易163邮箱</option>
+            <option value="#">网易126邮箱</option>
+        </select>
+        <select onChange="frlink(this)" name="select" class="select-link">
+            <option selected>--- 信息网站 ---</option>
+            <option value="#">&nbsp;&nbsp;&nbsp;&nbsp;新浪新闻</option>
+            <option value="#">&nbsp;&nbsp;&nbsp;&nbsp;卡车之家</option>
+            <option value="#">&nbsp;&nbsp;&nbsp;&nbsp;百度网站</option>
+        </select>
+    </div>
+</div>
+<div id="div6">Copyright &copy; 2011-2016 中国重汽济南铸锻中心 技术部信息管理室 设计制作(联系电话：1150)| All Rights Reserved</div>
+</body>
+</html>
+
